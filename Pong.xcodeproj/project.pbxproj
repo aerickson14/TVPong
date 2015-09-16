@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534F40901BA91636007CAFF5 /* ComputerPaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F408F1BA91636007CAFF5 /* ComputerPaddle.swift */; };
+		534F40921BA91AFB007CAFF5 /* UserPaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F40911BA91AFB007CAFF5 /* UserPaddle.swift */; };
+		534F40941BA929C6007CAFF5 /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F40931BA929C6007CAFF5 /* Scoreboard.swift */; };
 		537B556E1BA7C7570046339B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B556D1BA7C7570046339B /* AppDelegate.swift */; };
-		537B55701BA7C7570046339B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 537B556F1BA7C7570046339B /* GameScene.sks */; };
 		537B55721BA7C7570046339B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55711BA7C7570046339B /* GameScene.swift */; };
 		537B55741BA7C7570046339B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55731BA7C7570046339B /* GameViewController.swift */; };
 		537B55761BA7C7570046339B /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537B55751BA7C7570046339B /* Game.xcassets */; };
 		537B55791BA7C7570046339B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537B55771BA7C7570046339B /* Main.storyboard */; };
 		537B557B1BA7C7570046339B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537B557A1BA7C7570046339B /* Assets.xcassets */; };
 		537B55861BA7C7580046339B /* PongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55851BA7C7580046339B /* PongTests.swift */; };
+		537B55911BA7C7B80046339B /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55901BA7C7B80046339B /* Ball.swift */; };
+		537B55931BA7CAFD0046339B /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55921BA7CAFD0046339B /* Paddle.swift */; };
+		537B55951BA7CDC10046339B /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55941BA7CDC10046339B /* Wall.swift */; };
+		537B55971BA7D3150046339B /* PositionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55961BA7D3150046339B /* PositionHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		534F408F1BA91636007CAFF5 /* ComputerPaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerPaddle.swift; sourceTree = "<group>"; };
+		534F40911BA91AFB007CAFF5 /* UserPaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPaddle.swift; sourceTree = "<group>"; };
+		534F40931BA929C6007CAFF5 /* Scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		537B556A1BA7C7570046339B /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		537B556D1BA7C7570046339B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		537B556F1BA7C7570046339B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		537B55711BA7C7570046339B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		537B55731BA7C7570046339B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		537B55751BA7C7570046339B /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
@@ -40,6 +48,10 @@
 		537B55811BA7C7580046339B /* PongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		537B55851BA7C7580046339B /* PongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongTests.swift; sourceTree = "<group>"; };
 		537B55871BA7C7580046339B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		537B55901BA7C7B80046339B /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		537B55921BA7CAFD0046339B /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
+		537B55941BA7CDC10046339B /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		537B55961BA7D3150046339B /* PositionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534F40951BA9308B007CAFF5 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				537B55941BA7CDC10046339B /* Wall.swift */,
+				537B55921BA7CAFD0046339B /* Paddle.swift */,
+				534F40911BA91AFB007CAFF5 /* UserPaddle.swift */,
+				534F408F1BA91636007CAFF5 /* ComputerPaddle.swift */,
+				537B55901BA7C7B80046339B /* Ball.swift */,
+				534F40931BA929C6007CAFF5 /* Scoreboard.swift */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		534F40961BA93097007CAFF5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				537B55961BA7D3150046339B /* PositionHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		534F40971BA930AF007CAFF5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				537B55711BA7C7570046339B /* GameScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		537B55611BA7C7570046339B = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +123,12 @@
 			isa = PBXGroup;
 			children = (
 				537B556D1BA7C7570046339B /* AppDelegate.swift */,
-				537B556F1BA7C7570046339B /* GameScene.sks */,
-				537B55711BA7C7570046339B /* GameScene.swift */,
 				537B55731BA7C7570046339B /* GameViewController.swift */,
-				537B55751BA7C7570046339B /* Game.xcassets */,
+				534F40971BA930AF007CAFF5 /* Scenes */,
+				534F40951BA9308B007CAFF5 /* Sprites */,
+				534F40961BA93097007CAFF5 /* Helpers */,
 				537B55771BA7C7570046339B /* Main.storyboard */,
+				537B55751BA7C7570046339B /* Game.xcassets */,
 				537B557A1BA7C7570046339B /* Assets.xcassets */,
 				537B557C1BA7C7570046339B /* Info.plist */,
 			);
@@ -151,6 +193,7 @@
 				TargetAttributes = {
 					537B55691BA7C7570046339B = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = AM7JW84RW4;
 					};
 					537B55801BA7C7580046339B = {
 						CreatedOnToolsVersion = 7.1;
@@ -183,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				537B55791BA7C7570046339B /* Main.storyboard in Resources */,
-				537B55701BA7C7570046339B /* GameScene.sks in Resources */,
 				537B557B1BA7C7570046339B /* Assets.xcassets in Resources */,
 				537B55761BA7C7570046339B /* Game.xcassets in Resources */,
 			);
@@ -203,9 +245,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534F40901BA91636007CAFF5 /* ComputerPaddle.swift in Sources */,
+				537B55931BA7CAFD0046339B /* Paddle.swift in Sources */,
+				537B55951BA7CDC10046339B /* Wall.swift in Sources */,
+				534F40941BA929C6007CAFF5 /* Scoreboard.swift in Sources */,
+				537B55911BA7C7B80046339B /* Ball.swift in Sources */,
 				537B55721BA7C7570046339B /* GameScene.swift in Sources */,
 				537B55741BA7C7570046339B /* GameViewController.swift in Sources */,
+				537B55971BA7D3150046339B /* PositionHelper.swift in Sources */,
 				537B556E1BA7C7570046339B /* AppDelegate.swift in Sources */,
+				534F40921BA91AFB007CAFF5 /* UserPaddle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,10 +374,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aerickson.Pong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -337,10 +388,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aerickson.Pong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -388,6 +441,7 @@
 				537B558C1BA7C7580046339B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		537B558D1BA7C7580046339B /* Build configuration list for PBXNativeTarget "PongTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +450,7 @@
 				537B558F1BA7C7580046339B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
