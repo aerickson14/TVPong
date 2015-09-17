@@ -21,6 +21,13 @@
 		537B55931BA7CAFD0046339B /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55921BA7CAFD0046339B /* Paddle.swift */; };
 		537B55951BA7CDC10046339B /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55941BA7CDC10046339B /* Wall.swift */; };
 		537B55971BA7D3150046339B /* PositionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B55961BA7D3150046339B /* PositionHelper.swift */; };
+		53D97B361BAA6EC300B58DA1 /* PaddleStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B351BAA6EC300B58DA1 /* PaddleStrategy.swift */; };
+		53D97B381BAA6F2400B58DA1 /* PaddleStrategySimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B371BAA6F2400B58DA1 /* PaddleStrategySimple.swift */; };
+		53D97B3A1BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B391BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift */; };
+		53D97B3D1BAA746A00B58DA1 /* PaddleStrategyRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B3C1BAA746A00B58DA1 /* PaddleStrategyRandom.swift */; };
+		53D97B401BAA749900B58DA1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B3F1BAA749900B58DA1 /* Int.swift */; };
+		53D97B421BAA74BB00B58DA1 /* SKShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */; };
+		53D97B441BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B431BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +59,13 @@
 		537B55921BA7CAFD0046339B /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		537B55941BA7CDC10046339B /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		537B55961BA7D3150046339B /* PositionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionHelper.swift; sourceTree = "<group>"; };
+		53D97B351BAA6EC300B58DA1 /* PaddleStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategy.swift; sourceTree = "<group>"; };
+		53D97B371BAA6F2400B58DA1 /* PaddleStrategySimple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategySimple.swift; sourceTree = "<group>"; };
+		53D97B391BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategyUnbeatable.swift; sourceTree = "<group>"; };
+		53D97B3C1BAA746A00B58DA1 /* PaddleStrategyRandom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategyRandom.swift; sourceTree = "<group>"; };
+		53D97B3F1BAA749900B58DA1 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShapeNode.swift; sourceTree = "<group>"; };
+		53D97B431BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategyLastMinute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,8 @@
 		534F40961BA93097007CAFF5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				53D97B3E1BAA748D00B58DA1 /* Exensions */,
+				53D97B3B1BAA720F00B58DA1 /* PaddleStrategies */,
 				537B55961BA7D3150046339B /* PositionHelper.swift */,
 			);
 			name = Helpers;
@@ -142,6 +158,27 @@
 				537B55871BA7C7580046339B /* Info.plist */,
 			);
 			path = PongTests;
+			sourceTree = "<group>";
+		};
+		53D97B3B1BAA720F00B58DA1 /* PaddleStrategies */ = {
+			isa = PBXGroup;
+			children = (
+				53D97B351BAA6EC300B58DA1 /* PaddleStrategy.swift */,
+				53D97B371BAA6F2400B58DA1 /* PaddleStrategySimple.swift */,
+				53D97B391BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift */,
+				53D97B3C1BAA746A00B58DA1 /* PaddleStrategyRandom.swift */,
+				53D97B431BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift */,
+			);
+			name = PaddleStrategies;
+			sourceTree = "<group>";
+		};
+		53D97B3E1BAA748D00B58DA1 /* Exensions */ = {
+			isa = PBXGroup;
+			children = (
+				53D97B3F1BAA749900B58DA1 /* Int.swift */,
+				53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */,
+			);
+			name = Exensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,13 +283,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				534F40901BA91636007CAFF5 /* ComputerPaddle.swift in Sources */,
+				53D97B421BAA74BB00B58DA1 /* SKShapeNode.swift in Sources */,
+				53D97B441BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift in Sources */,
 				537B55931BA7CAFD0046339B /* Paddle.swift in Sources */,
 				537B55951BA7CDC10046339B /* Wall.swift in Sources */,
 				534F40941BA929C6007CAFF5 /* Scoreboard.swift in Sources */,
 				537B55911BA7C7B80046339B /* Ball.swift in Sources */,
+				53D97B3D1BAA746A00B58DA1 /* PaddleStrategyRandom.swift in Sources */,
+				53D97B361BAA6EC300B58DA1 /* PaddleStrategy.swift in Sources */,
 				537B55721BA7C7570046339B /* GameScene.swift in Sources */,
 				537B55741BA7C7570046339B /* GameViewController.swift in Sources */,
+				53D97B381BAA6F2400B58DA1 /* PaddleStrategySimple.swift in Sources */,
 				537B55971BA7D3150046339B /* PositionHelper.swift in Sources */,
+				53D97B3A1BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift in Sources */,
+				53D97B401BAA749900B58DA1 /* Int.swift in Sources */,
 				537B556E1BA7C7570046339B /* AppDelegate.swift in Sources */,
 				534F40921BA91AFB007CAFF5 /* UserPaddle.swift in Sources */,
 			);

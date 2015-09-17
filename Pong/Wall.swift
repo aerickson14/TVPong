@@ -12,14 +12,14 @@ class Wall: SKShapeNode {
     
     init(rect: CGRect) {
         super.init()
-        self.path = CGPathCreateWithRect(rect, nil)
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: rect)
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Wall
-        self.physicsBody?.collisionBitMask = PhysicsCategory.Ball | PhysicsCategory.Paddle
-        self.physicsBody?.restitution = 1
-        self.physicsBody?.linearDamping = 0
-        self.physicsBody?.friction = 0
-        self.physicsBody?.angularDamping = 0
+        path = CGPathCreateWithRect(rect, nil)
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: rect)
+        physicsBody?.categoryBitMask = PhysicsCategory.Wall
+        physicsBody?.collisionBitMask = PhysicsCategory.Ball | PhysicsCategory.Paddle
+        physicsBody?.restitution = 1
+        physicsBody?.linearDamping = 0
+        physicsBody?.friction = 0
+        physicsBody?.angularDamping = 0
         
         //debugPath(rect)
     }

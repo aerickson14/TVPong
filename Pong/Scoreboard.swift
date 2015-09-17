@@ -17,26 +17,26 @@ class Scoreboard: SKShapeNode {
     
     override init() {
         super.init()
-        self.path = CGPathCreateWithRect(CGRectMake(-100, -10, 200, 50), nil)
-        self.lineWidth = 0
+        path = CGPathCreateWithRect(CGRectMake(-100, -10, 200, 50), nil)
+        lineWidth = 0
         
         computerScoreLabel.position = CGPointMake(50, 0)
         computerScoreLabel.fontColor = UIColor.whiteColor()
         computerScoreLabel.verticalAlignmentMode = .Center
         computerScoreLabel.horizontalAlignmentMode = .Center
         computerScoreLabel.fontSize = 50
-        self.addChild(computerScoreLabel)
+        addChild(computerScoreLabel)
         
         userScoreLabel.position = CGPointMake(-50, 0)
         userScoreLabel.fontColor = UIColor.whiteColor()
         userScoreLabel.verticalAlignmentMode = .Center
         userScoreLabel.horizontalAlignmentMode = .Center
         userScoreLabel.fontSize = 50
-        self.addChild(userScoreLabel)
+        addChild(userScoreLabel)
         
         updateUI()
         
-        //debugPath(self.frame)
+        //debugPath(frame)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -56,18 +56,5 @@ class Scoreboard: SKShapeNode {
     private func updateUI() {
         computerScoreLabel.text = String(computerScore)
         userScoreLabel.text = String(userScore)
-    }
-}
-
-extension SKShapeNode {
-    
-    func debugPath(rect: CGRect) {
-        let path = CGPathCreateWithRect(rect, nil)
-        let pathShape = SKShapeNode(path: path)
-        
-        pathShape.lineWidth = 1
-        pathShape.strokeColor = SKColor.greenColor()
-        self.addChild(pathShape)
-        pathShape.zPosition = 1000
     }
 }

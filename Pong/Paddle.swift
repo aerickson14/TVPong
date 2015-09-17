@@ -12,18 +12,18 @@ class Paddle: SKSpriteNode {
     
     init() {
         let bodyTexture = SKTexture(imageNamed: "paddle")
-        let paddleSize = CGSizeMake(5, 60)
+        let paddleSize = CGSizeMake(20, 100)
         super.init(texture: bodyTexture, color: UIColor.clearColor(), size: paddleSize)
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: paddleSize)
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.dynamic = false
-        self.physicsBody?.allowsRotation = false
-        self.physicsBody?.collisionBitMask = PhysicsCategory.Wall | PhysicsCategory.Ball
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Paddle
-        self.physicsBody?.restitution = 1
-        self.physicsBody?.linearDamping = 0
-        self.physicsBody?.friction = 0
-        self.physicsBody?.angularDamping = 0
+        physicsBody = SKPhysicsBody(rectangleOfSize: paddleSize)
+        physicsBody?.affectedByGravity = false
+        physicsBody?.dynamic = false
+        physicsBody?.allowsRotation = false
+        physicsBody?.collisionBitMask = PhysicsCategory.Wall | PhysicsCategory.Ball
+        physicsBody?.categoryBitMask = PhysicsCategory.Paddle
+        physicsBody?.restitution = 1
+        physicsBody?.linearDamping = 0
+        physicsBody?.friction = 0
+        physicsBody?.angularDamping = 0
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,12 +31,24 @@ class Paddle: SKSpriteNode {
     }
     
     func moveToY(yPos: CGFloat) {
-        let yPositionAction = SKAction.moveToY(yPos, duration: 0)
-        self.runAction(yPositionAction)
+        moveToY(yPos, duration: 0)
+    }
+    
+    func moveToY(yPos: CGFloat, duration: NSTimeInterval) {
+        moveToY(yPos, duration: duration) {}
+    }
+    
+    func moveToY(yPos: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        let yPositionAction = SKAction.moveToY(yPos, duration: duration)
+        runAction(yPositionAction, completion: completion)
     }
     
     func moveByY(dy: CGFloat) {
-        let yPositionAction = SKAction.moveBy(CGVectorMake(0, dy), duration: 0)
-        self.runAction(yPositionAction)
+        moveByY(dy, duration: 0)
+    }
+    
+    func moveByY(dy: CGFloat, duration: NSTimeInterval) {
+        let yPositionAction = SKAction.moveBy(CGVectorMake(0, dy), duration: duration)
+        runAction(yPositionAction)
     }
 }

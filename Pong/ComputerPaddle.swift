@@ -11,9 +11,11 @@ import SpriteKit
 class ComputerPaddle: Paddle {
     
     var ball: Ball
+    var strategy: PaddleStrategy
     
-    init(ball: Ball) {
+    init(ball: Ball, strategy: PaddleStrategy) {
         self.ball = ball
+        self.strategy = strategy
         super.init()
     }
     
@@ -22,6 +24,6 @@ class ComputerPaddle: Paddle {
     }
     
     func update() {
-        moveToY(self.ball.position.y)
+        strategy.update(self, ball: ball)
     }
 }

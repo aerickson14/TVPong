@@ -33,46 +33,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         setupGame()
         
-        self.physicsWorld.gravity = CGVectorMake(0, 0)
-        self.physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVectorMake(0, 0)
+        physicsWorld.contactDelegate = self
         
     }
     
     private func setupGame() {
-        self.ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-        self.addChild(self.ball)
-        self.ball.pushInRandomDirection()
+        print("WIDTH \(frame.width)")
+        ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(frame))
+        addChild(ball)
+        ball.pushInRandomDirection()
         
-        self.userPaddle.position = CGPointMake(10, CGRectGetMidY(self.frame))
-        self.addChild(self.userPaddle)
+        userPaddle.position = CGPointMake(userPaddle.frame.width + 10, CGRectGetMidY(frame))
+        addChild(userPaddle)
         
-        self.computerPaddle = ComputerPaddle(ball: ball)
-        if let _computerPaddle = self.computerPaddle {
-            _computerPaddle.position = CGPointMake(self.frame.width-10, CGRectGetMidY(self.frame))
-            self.addChild(_computerPaddle)
+        computerPaddle = ComputerPaddle(ball: ball, strategy: PaddleStrategyLastMinute())
+        if let _computerPaddle = computerPaddle {
+            _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 10, CGRectGetMidY(self.frame))
+            addChild(_computerPaddle)
         }
         
-        self.wall = Wall(rect: self.frame)
-        if let _wall = self.wall {
-            self.addChild(_wall)
+        wall = Wall(rect: frame)
+        if let _wall = wall {
+            addChild(_wall)
         }
         
-        self.scoreboard.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.height - self.scoreboard.frame.height)
-        self.scoreboard.zPosition = 5
-        self.addChild(self.scoreboard)
+        scoreboard.position = CGPointMake(CGRectGetMidX(frame), frame.height - scoreboard.frame.height)
+        scoreboard.zPosition = 5
+        addChild(self.scoreboard)
     }
     
     private func resetBall() {
-        self.ball.removeFromParent()
+        ball.removeFromParent()
         
         let delayAction = SKAction.waitForDuration(3.0)
-        let addNewBallAction = SKAction.runBlock { () -> Void in
-            self.ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            self.addChild(self.ball)
-            self.ball.pushInRandomDirection()
+        let addNewBallAction = SKAction.runBlock { [weak self] () -> Void in
+            if let weakSelf = self {
+                weakSelf.ball.position = CGPointMake(CGRectGetMidX(weakSelf.frame), CGRectGetMidY(weakSelf.frame))
+                weakSelf.addChild(weakSelf.ball)
+                weakSelf.ball.pushInRandomDirection()
+            }
         }
         let resetBallAction = SKAction.sequence([delayAction, addNewBallAction])
-        self.runAction(resetBallAction)
+        runAction(resetBallAction)
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -91,7 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         if contact.contactPoint.x < 5 {
             computerPoint()
-        } else if contact.contactPoint.x > self.frame.width - 5 {
+        } else if contact.contactPoint.x > frame.width - 5 {
             userPoint()
         }
     }
