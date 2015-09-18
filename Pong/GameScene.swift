@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let scoreboard = Scoreboard()
     let ball = Ball()
-    let userPaddle = UserPaddle()
+    var userPaddle: UserPaddle?
     var computerPaddle: ComputerPaddle?
     var wall: Wall?
     
@@ -39,15 +39,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func setupGame() {
-        print("WIDTH \(frame.width)")
         ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(frame))
         addChild(ball)
         ball.pushInRandomDirection()
         
-        userPaddle.position = CGPointMake(userPaddle.frame.width + 10, CGRectGetMidY(frame))
-        addChild(userPaddle)
+        let paddleSize = CGSizeMake(20, 100)
+        let minY: CGFloat = frame.origin.y + 0.5*paddleSize.height
+        let maxY: CGFloat = frame.origin.y + frame.height - 0.5*paddleSize.height
+        userPaddle = UserPaddle(minY: minY, maxY: maxY, size: paddleSize)
+        if let _userPaddle = userPaddle {
+            _userPaddle.position = CGPointMake(_userPaddle.frame.width + 10, CGRectGetMidY(frame))
+            addChild(_userPaddle)
+        }
         
-        computerPaddle = ComputerPaddle(ball: ball, strategy: PaddleStrategyLastMinute())
+        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyLastMinute())
         if let _computerPaddle = computerPaddle {
             _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 10, CGRectGetMidY(self.frame))
             addChild(_computerPaddle)
@@ -83,7 +88,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let prevLoc = touch.previousLocationInView(self.view)
             let curLoc = touch.locationInView(self.view)
             let dy = prevLoc.y - curLoc.y
-            userPaddle.moveByY(dy)
+            userPaddle?.moveByY(dy)
         }
     }
    

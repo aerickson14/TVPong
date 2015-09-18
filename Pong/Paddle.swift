@@ -10,9 +10,12 @@ import SpriteKit
 
 class Paddle: SKSpriteNode {
     
-    init() {
+    let yRange: NSRange
+    
+    init(minY: CGFloat, maxY: CGFloat, size: CGSize) {
         let bodyTexture = SKTexture(imageNamed: "paddle")
-        let paddleSize = CGSizeMake(20, 100)
+        let paddleSize = size
+        self.yRange = NSMakeRange(Int(minY), Int(maxY-minY+1))
         super.init(texture: bodyTexture, color: UIColor.clearColor(), size: paddleSize)
         physicsBody = SKPhysicsBody(rectangleOfSize: paddleSize)
         physicsBody?.affectedByGravity = false
@@ -38,7 +41,8 @@ class Paddle: SKSpriteNode {
         moveToY(yPos, duration: duration) {}
     }
     
-    func moveToY(yPos: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+    func moveToY(var yPos: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        yPos = restrictYPos(yPos)
         let yPositionAction = SKAction.moveToY(yPos, duration: duration)
         runAction(yPositionAction, completion: completion)
     }
@@ -48,7 +52,20 @@ class Paddle: SKSpriteNode {
     }
     
     func moveByY(dy: CGFloat, duration: NSTimeInterval) {
-        let yPositionAction = SKAction.moveBy(CGVectorMake(0, dy), duration: duration)
+        let yPos = restrictYPos(self.position.y + dy)
+        let yPositionAction = SKAction.moveToY(yPos, duration: duration)
         runAction(yPositionAction)
+    }
+    
+    private func restrictYPos(yPos: CGFloat) -> CGFloat {
+        if yPos < CGFloat(yRange.location) {
+            print("too small")
+            return CGFloat(yRange.location)
+        } else if yPos > CGFloat(yRange.endLocation) {
+            print("too large")
+            return CGFloat(yRange.endLocation)
+        }
+        
+        return yPos
     }
 }

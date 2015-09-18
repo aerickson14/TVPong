@@ -13,10 +13,10 @@ class ComputerPaddle: Paddle {
     var ball: Ball
     var strategy: PaddleStrategy
     
-    init(ball: Ball, strategy: PaddleStrategy) {
+    init(minY: CGFloat, maxY: CGFloat, size: CGSize, ball: Ball, strategy: PaddleStrategy) {
         self.ball = ball
         self.strategy = strategy
-        super.init()
+        super.init(minY: minY, maxY: maxY, size: size)
     }
     
     required init?(coder aDecoder: NSCoder) {
