@@ -21,6 +21,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var userPaddle: UserPaddle?
     var computerPaddle: ComputerPaddle?
     var wall: Wall?
+    var pauseDelegate: ScenePauseDelegate?
+    var gameIsPaused = false
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -31,14 +33,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMoveToView(view: SKView) {
-        setupGame()
         
-        physicsWorld.gravity = CGVectorMake(0, 0)
-        physicsWorld.contactDelegate = self
-        
+        if !gameIsPaused {
+            let pauseGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("didPressPause"))
+            pauseGestureRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
+            self.view?.addGestureRecognizer(pauseGestureRecognizer)
+            
+            setupGame()
+            
+            physicsWorld.gravity = CGVectorMake(0, 0)
+            physicsWorld.contactDelegate = self
+        } else {
+            gameIsPaused = false
+        }
     }
     
     private func setupGame() {
+        backgroundColor = UIColor.blackColor()
+        
         ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(frame))
         addChild(ball)
         ball.pushInRandomDirection()
@@ -90,6 +102,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let dy = prevLoc.y - curLoc.y
             userPaddle?.moveByY(dy)
         }
+    }
+    
+    func didPressPause() {
+        pauseDelegate?.didPauseGame()
     }
    
     override func update(currentTime: CFTimeInterval) {

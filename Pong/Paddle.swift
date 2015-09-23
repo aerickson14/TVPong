@@ -59,10 +59,8 @@ class Paddle: SKSpriteNode {
     
     private func restrictYPos(yPos: CGFloat) -> CGFloat {
         if yPos < CGFloat(yRange.location) {
-            print("too small")
             return CGFloat(yRange.location)
         } else if yPos > CGFloat(yRange.endLocation) {
-            print("too large")
             return CGFloat(yRange.endLocation)
         }
         

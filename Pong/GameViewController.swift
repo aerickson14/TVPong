@@ -9,18 +9,52 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+protocol ScenePauseDelegate {
+    func didPauseGame()
+}
 
+protocol StartGameDelegate {
+    func didStartGame()
+    func didUnpauseGame()
+}
+
+class GameViewController: UIViewController, ScenePauseDelegate, StartGameDelegate {
+    
+    var skView: SKView?
+    var menuScene: MenuScene?
+    var gameScene: GameScene?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let scene = GameScene(size: self.view.frame.size)
-        let skView = self.view as! SKView
-        skView.showsFPS = false
-        skView.showsNodeCount = false
-        skView.ignoresSiblingOrder = true
-        scene.scaleMode = .AspectFill
-        
-        skView.presentScene(scene)
+        skView = self.view as? SKView
+        skView?.showsFPS = false
+        skView?.showsNodeCount = false
+        skView?.ignoresSiblingOrder = true
+        showMenu()
+    }
+    
+    func showMenu() {
+        menuScene = MenuScene(fileNamed: "MenuScene")
+        menuScene?.startGameDelegate = self
+        menuScene?.scaleMode = .AspectFill
+        skView?.presentScene(menuScene)
+    }
+    
+    func didStartGame() {
+        gameScene = GameScene(size: self.view.frame.size)
+        gameScene?.pauseDelegate = self
+        gameScene?.scaleMode = .AspectFill
+        skView?.presentScene(gameScene)
+    }
+    
+    func didPauseGame() {
+        gameScene?.paused = true
+        gameScene?.gameIsPaused = true
+        menuScene?.gameIsPaused = true
+        skView?.presentScene(menuScene)
+    }
+    
+    func didUnpauseGame() {
+        skView?.presentScene(gameScene)
     }
 }
