@@ -8,6 +8,8 @@
 
 import SpriteKit
 
+let BallSpeedUpFactor: CGFloat = 1.1
+
 class Ball: SKSpriteNode {
     
     init() {
@@ -20,7 +22,7 @@ class Ball: SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.collisionBitMask = PhysicsCategory.Wall | PhysicsCategory.Paddle
         physicsBody?.categoryBitMask = PhysicsCategory.Ball
-        physicsBody?.contactTestBitMask = PhysicsCategory.Wall
+        physicsBody?.contactTestBitMask = PhysicsCategory.Wall | PhysicsCategory.Paddle
         physicsBody?.restitution = 1
         physicsBody?.linearDamping = 0
         physicsBody?.friction = 0
@@ -34,5 +36,11 @@ class Ball: SKSpriteNode {
     
     func pushInRandomDirection() {
         physicsBody?.velocity = PositionHelper.randomStartVector(300)
+    }
+    
+    func adjustSpeed(factor: CGFloat) {
+        if let dx = physicsBody?.velocity.dx, dy = physicsBody?.velocity.dy {
+            physicsBody?.velocity = CGVectorMake(dx * factor, dy * factor)
+        }
     }
 }

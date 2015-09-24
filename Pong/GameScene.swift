@@ -64,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(_userPaddle)
         }
         
-        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyLastMinute(halfWayPoint: self.frame.width/2))
+        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyUnbeatable())
         if let _computerPaddle = computerPaddle {
             _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 10, CGRectGetMidY(self.frame))
             addChild(_computerPaddle)
@@ -113,11 +113,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        if contact.contactPoint.x < 5 {
-            computerPoint()
-        } else if contact.contactPoint.x > frame.width - 5 {
-            userPoint()
+        if isContactBetween(contact, categoryA: PhysicsCategory.Ball, categoryB: PhysicsCategory.Wall) == true {
+            if contact.contactPoint.x < 5 {
+                computerPoint()
+            } else if contact.contactPoint.x > frame.width - 5 {
+                userPoint()
+            }
+        } else if isContactBetween(contact, categoryA: PhysicsCategory.Ball, categoryB: PhysicsCategory.Paddle) == true {
+            ball.adjustSpeed(BallSpeedUpFactor)
         }
+    }
+    
+    private func isContactBetween(contact: SKPhysicsContact, categoryA: UInt32, categoryB: UInt32) -> Bool {
+        let aHitB = contact.bodyA.categoryBitMask == categoryA && contact.bodyB.categoryBitMask == categoryB
+        let bHitA = contact.bodyA.categoryBitMask == categoryB && contact.bodyB.categoryBitMask == categoryA
+        
+        return aHitB || bHitA
     }
     
     func computerPoint() {
