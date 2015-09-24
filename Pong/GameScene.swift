@@ -64,7 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(_userPaddle)
         }
         
-        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyLastMinute())
+        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyLastMinute(halfWayPoint: self.frame.width/2))
         if let _computerPaddle = computerPaddle {
             _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 10, CGRectGetMidY(self.frame))
             addChild(_computerPaddle)

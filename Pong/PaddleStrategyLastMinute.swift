@@ -12,9 +12,14 @@ class PaddleStrategyLastMinute: PaddleStrategy {
     
     //use this to wait until a previous move has finished
     var reacted = false
+    var halfWayPoint: CGFloat
+    
+    init(halfWayPoint: CGFloat) {
+        self.halfWayPoint = halfWayPoint
+    }
     
     func update(paddle: Paddle, ball: Ball) {
-        if ball.position.x > 960 && !reacted {
+        if ball.position.x > halfWayPoint && !reacted {
             let dy = ball.position.y - paddle.position.y
             //have the paddle move anywhere from nowhere to overshooting it by 1.5x the distance
             let projectionPercent = CGFloat.random(0.0, b: 1.5)
