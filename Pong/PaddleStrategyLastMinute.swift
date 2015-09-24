@@ -10,13 +10,16 @@ import UIKit
 
 class PaddleStrategyLastMinute: PaddleStrategy {
     
+    //use this to wait until a previous move has finished
     var reacted = false
     
     func update(paddle: Paddle, ball: Ball) {
         if ball.position.x > 960 && !reacted {
             let dy = ball.position.y - paddle.position.y
-            let projection: CGFloat = (dy < 0) ? 100 : -100
-            paddle.moveToY(ball.position.y, duration:0.5) {
+            //have the paddle move anywhere from nowhere to overshooting it by 1.5x the distance
+            let projectionPercent = CGFloat.random(0.0, b: 1.5)
+            let projection: CGFloat = dy * projectionPercent
+            paddle.moveToY(ball.position.y + projection, duration:0.5) {
                 self.reacted = false
             }
             reacted = true
