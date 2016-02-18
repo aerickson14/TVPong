@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53093C301BB231BC00F6FB0F /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53093C2F1BB231BC00F6FB0F /* MenuScene.swift */; };
-		53093C321BB232B000F6FB0F /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 53093C311BB232B000F6FB0F /* MenuScene.sks */; };
+		53399DA31BB8C9FB00501085 /* Pixel_Coleco.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53399DA21BB8C9FB00501085 /* Pixel_Coleco.otf */; };
+		533A99FE1BB5FC0D0063F447 /* PauseMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A99FD1BB5FC0D0063F447 /* PauseMenuScene.swift */; };
+		533A9A001BB5FC360063F447 /* PauseMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 533A99FF1BB5FC360063F447 /* PauseMenuScene.sks */; };
+		533A9A021BB6D20B0063F447 /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A9A011BB6D20B0063F447 /* SKScene.swift */; };
+		533A9A051BB6D4AA0063F447 /* StartMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A9A041BB6D4AA0063F447 /* StartMenuViewController.swift */; };
 		534F40901BA91636007CAFF5 /* ComputerPaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F408F1BA91636007CAFF5 /* ComputerPaddle.swift */; };
 		534F40921BA91AFB007CAFF5 /* UserPaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F40911BA91AFB007CAFF5 /* UserPaddle.swift */; };
 		534F40941BA929C6007CAFF5 /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F40931BA929C6007CAFF5 /* Scoreboard.swift */; };
@@ -32,6 +35,8 @@
 		53D97B401BAA749900B58DA1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B3F1BAA749900B58DA1 /* Int.swift */; };
 		53D97B421BAA74BB00B58DA1 /* SKShapeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */; };
 		53D97B441BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D97B431BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift */; };
+		53E738391BB772BE000F17BC /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E738381BB772BE000F17BC /* UIViewController.swift */; };
+		53E7383B1BB77A68000F17BC /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E7383A1BB77A68000F17BC /* GameConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		53093C2F1BB231BC00F6FB0F /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
-		53093C311BB232B000F6FB0F /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		53399DA21BB8C9FB00501085 /* Pixel_Coleco.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pixel_Coleco.otf; sourceTree = "<group>"; };
+		533A99FD1BB5FC0D0063F447 /* PauseMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseMenuScene.swift; sourceTree = "<group>"; };
+		533A99FF1BB5FC360063F447 /* PauseMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PauseMenuScene.sks; sourceTree = "<group>"; };
+		533A9A011BB6D20B0063F447 /* SKScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScene.swift; sourceTree = "<group>"; };
+		533A9A041BB6D4AA0063F447 /* StartMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartMenuViewController.swift; sourceTree = "<group>"; };
 		534F408F1BA91636007CAFF5 /* ComputerPaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComputerPaddle.swift; sourceTree = "<group>"; };
 		534F40911BA91AFB007CAFF5 /* UserPaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPaddle.swift; sourceTree = "<group>"; };
 		534F40931BA929C6007CAFF5 /* Scoreboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
@@ -74,6 +82,8 @@
 		53D97B3F1BAA749900B58DA1 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKShapeNode.swift; sourceTree = "<group>"; };
 		53D97B431BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleStrategyLastMinute.swift; sourceTree = "<group>"; };
+		53E738381BB772BE000F17BC /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		53E7383A1BB77A68000F17BC /* GameConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53399DA11BB8C9A900501085 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				53399DA21BB8C9FB00501085 /* Pixel_Coleco.otf */,
+				537B55751BA7C7570046339B /* Game.xcassets */,
+				537B557A1BA7C7570046339B /* Assets.xcassets */,
+				537B557C1BA7C7570046339B /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		533A9A031BB6D48D0063F447 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				533A9A041BB6D4AA0063F447 /* StartMenuViewController.swift */,
+				537B55731BA7C7570046339B /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		534F40951BA9308B007CAFF5 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +143,7 @@
 				53D97B3E1BAA748D00B58DA1 /* Exensions */,
 				53D97B3B1BAA720F00B58DA1 /* PaddleStrategies */,
 				537B55961BA7D3150046339B /* PositionHelper.swift */,
+				53E7383A1BB77A68000F17BC /* GameConfig.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -121,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				537B55711BA7C7570046339B /* GameScene.swift */,
-				53093C2F1BB231BC00F6FB0F /* MenuScene.swift */,
-				53093C311BB232B000F6FB0F /* MenuScene.sks */,
+				533A99FD1BB5FC0D0063F447 /* PauseMenuScene.swift */,
+				533A99FF1BB5FC360063F447 /* PauseMenuScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -149,14 +180,12 @@
 			isa = PBXGroup;
 			children = (
 				537B556D1BA7C7570046339B /* AppDelegate.swift */,
-				537B55731BA7C7570046339B /* GameViewController.swift */,
+				537B55771BA7C7570046339B /* Main.storyboard */,
+				533A9A031BB6D48D0063F447 /* Controllers */,
 				534F40971BA930AF007CAFF5 /* Scenes */,
 				534F40951BA9308B007CAFF5 /* Sprites */,
 				534F40961BA93097007CAFF5 /* Helpers */,
-				537B55771BA7C7570046339B /* Main.storyboard */,
-				537B55751BA7C7570046339B /* Game.xcassets */,
-				537B557A1BA7C7570046339B /* Assets.xcassets */,
-				537B557C1BA7C7570046339B /* Info.plist */,
+				53399DA11BB8C9A900501085 /* Resources */,
 			);
 			path = Pong;
 			sourceTree = "<group>";
@@ -189,6 +218,8 @@
 				53D97B411BAA74BB00B58DA1 /* SKShapeNode.swift */,
 				53C051291BAC9FAB00C96407 /* NSRange.swift */,
 				53A653A31BB38DD300E9CBD3 /* CGFloat.swift */,
+				533A9A011BB6D20B0063F447 /* SKScene.swift */,
+				53E738381BB772BE000F17BC /* UIViewController.swift */,
 			);
 			name = Exensions;
 			sourceTree = "<group>";
@@ -277,7 +308,8 @@
 				537B55791BA7C7570046339B /* Main.storyboard in Resources */,
 				537B557B1BA7C7570046339B /* Assets.xcassets in Resources */,
 				537B55761BA7C7570046339B /* Game.xcassets in Resources */,
-				53093C321BB232B000F6FB0F /* MenuScene.sks in Resources */,
+				533A9A001BB5FC360063F447 /* PauseMenuScene.sks in Resources */,
+				53399DA31BB8C9FB00501085 /* Pixel_Coleco.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,11 +327,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533A9A021BB6D20B0063F447 /* SKScene.swift in Sources */,
 				53A653A41BB38DD300E9CBD3 /* CGFloat.swift in Sources */,
-				53093C301BB231BC00F6FB0F /* MenuScene.swift in Sources */,
+				533A99FE1BB5FC0D0063F447 /* PauseMenuScene.swift in Sources */,
 				534F40901BA91636007CAFF5 /* ComputerPaddle.swift in Sources */,
 				53D97B421BAA74BB00B58DA1 /* SKShapeNode.swift in Sources */,
 				53D97B441BAA78DE00B58DA1 /* PaddleStrategyLastMinute.swift in Sources */,
+				53E738391BB772BE000F17BC /* UIViewController.swift in Sources */,
 				537B55931BA7CAFD0046339B /* Paddle.swift in Sources */,
 				537B55951BA7CDC10046339B /* Wall.swift in Sources */,
 				534F40941BA929C6007CAFF5 /* Scoreboard.swift in Sources */,
@@ -312,8 +346,10 @@
 				53D97B381BAA6F2400B58DA1 /* PaddleStrategySimple.swift in Sources */,
 				537B55971BA7D3150046339B /* PositionHelper.swift in Sources */,
 				53D97B3A1BAA6F2D00B58DA1 /* PaddleStrategyUnbeatable.swift in Sources */,
+				53E7383B1BB77A68000F17BC /* GameConfig.swift in Sources */,
 				53D97B401BAA749900B58DA1 /* Int.swift in Sources */,
 				537B556E1BA7C7570046339B /* AppDelegate.swift in Sources */,
+				533A9A051BB6D4AA0063F447 /* StartMenuViewController.swift in Sources */,
 				534F40921BA91AFB007CAFF5 /* UserPaddle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +473,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aerickson.Pong;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.aerickson.TVPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -451,7 +487,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Pong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aerickson.Pong;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.aerickson.TVPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
