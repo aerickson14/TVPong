@@ -27,6 +27,7 @@ class Paddle: SKSpriteNode {
         physicsBody?.linearDamping = 0
         physicsBody?.friction = 0
         physicsBody?.angularDamping = 0
+        physicsBody?.usesPreciseCollisionDetection = true
     }
     
     required init?(coder aDecoder: NSCoder) {
