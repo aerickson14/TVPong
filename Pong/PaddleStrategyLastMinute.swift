@@ -19,10 +19,12 @@ class PaddleStrategyLastMinute: PaddleStrategy {
     }
     
     func update(paddle: Paddle, ball: Ball) {
-        if ball.position.x > halfWayPoint && !reacted {
+        let isLeftZone = paddle.position.x < ball.position.x && ball.position.x < halfWayPoint
+        let isRightZone = paddle.position.x > ball.position.x && ball.position.x > halfWayPoint
+        if (isLeftZone || isRightZone) && !reacted {
             let dy = ball.position.y - paddle.position.y
             //have the paddle move anywhere from nowhere to overshooting it by 1.5x the distance
-            let projectionPercent = CGFloat.random(0.0, b: 1.5)
+            let projectionPercent = CGFloat.random(0, b: 1.5)
             let projection: CGFloat = dy * projectionPercent
             paddle.moveToY(ball.position.y + projection, duration:0.5) {
                 self.reacted = false

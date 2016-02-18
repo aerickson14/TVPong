@@ -10,6 +10,12 @@ import Foundation
 
 class PaddleStrategyUnbeatable: PaddleStrategy {
     
+    var difficulty: GameDifficulty
+    
+    init(difficulty: GameDifficulty) {
+        self.difficulty = difficulty
+    }
+    
     func update(paddle: Paddle, ball: Ball) {
         paddle.moveToY(ball.position.y)
     }
