@@ -21,10 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var userPaddle: UserPaddle?
     var computerPaddle: ComputerPaddle?
     var wall: Wall?
-    var pauseDelegate: ScenePauseDelegate?
+    var pauseDelegate: PauseGameDelegate?
     var gameIsPaused = false
+    var gameConfig: GameConfig
     
-    override init(size: CGSize) {
+    init(size: CGSize, gameConfig: GameConfig) {
+        self.gameConfig = gameConfig
         super.init(size: size)
     }
 
@@ -34,11 +36,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        addPlayPauseRecognizer("didPressPause")
+        
         if !gameIsPaused {
-            let pauseGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("didPressPause"))
-            pauseGestureRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
-            self.view?.addGestureRecognizer(pauseGestureRecognizer)
-            
+            addMenuButtonRecognizer("didPressPause")
             setupGame()
             
             physicsWorld.gravity = CGVectorMake(0, 0)
@@ -51,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private func setupGame() {
         backgroundColor = UIColor.blackColor()
         
+        ball.difficulty = gameConfig.difficulty
         ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(frame))
         addChild(ball)
         ball.pushInRandomDirection()
@@ -60,13 +62,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let maxY: CGFloat = frame.origin.y + frame.height - 0.5*paddleSize.height
         userPaddle = UserPaddle(minY: minY, maxY: maxY, size: paddleSize)
         if let _userPaddle = userPaddle {
-            _userPaddle.position = CGPointMake(_userPaddle.frame.width + 10, CGRectGetMidY(frame))
+            _userPaddle.position = CGPointMake(_userPaddle.frame.width + 50, CGRectGetMidY(frame))
             addChild(_userPaddle)
         }
         
-        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyUnbeatable())
+        computerPaddle = ComputerPaddle(minY: minY, maxY: maxY, size: paddleSize, ball: ball, strategy: PaddleStrategyUnbeatable(difficulty: gameConfig.difficulty))
         if let _computerPaddle = computerPaddle {
-            _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 10, CGRectGetMidY(self.frame))
+            _computerPaddle.position = CGPointMake(frame.width - _computerPaddle.frame.width - 50, CGRectGetMidY(self.frame))
             addChild(_computerPaddle)
         }
         
@@ -75,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(_wall)
         }
         
-        scoreboard.position = CGPointMake(CGRectGetMidX(frame), frame.height - scoreboard.frame.height)
+        scoreboard.position = CGPointMake(CGRectGetMidX(frame), frame.height - scoreboard.frame.height - 50)
         scoreboard.zPosition = 5
         addChild(self.scoreboard)
     }
@@ -114,9 +116,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         if isContactBetween(contact, categoryA: PhysicsCategory.Ball, categoryB: PhysicsCategory.Wall) == true {
-            if contact.contactPoint.x < 5 {
+            if contact.contactPoint.x < 25 {
                 computerPoint()
-            } else if contact.contactPoint.x > frame.width - 5 {
+            } else if contact.contactPoint.x > frame.width - 25 {
                 userPoint()
             }
         } else if isContactBetween(contact, categoryA: PhysicsCategory.Ball, categoryB: PhysicsCategory.Paddle) == true {
