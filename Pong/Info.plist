@@ -21,7 +21,11 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true/>
+	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Pixel_Coleco.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
