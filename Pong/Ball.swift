@@ -12,6 +12,8 @@ let BallSpeedUpFactor: CGFloat = 1.1
 
 class Ball: SKSpriteNode {
     
+    var difficulty: GameDifficulty = .Normal
+    
     init() {
         let bodyTexture = SKTexture(imageNamed: "ball")
         let ballSize = CGSizeMake(20, 20)
@@ -35,12 +37,32 @@ class Ball: SKSpriteNode {
     }
     
     func pushInRandomDirection() {
-        physicsBody?.velocity = PositionHelper.randomStartVector(300)
+        physicsBody?.velocity = vectorForDifficulty()
+    }
+    
+    func vectorForDifficulty() -> CGVector {
+        switch(self.difficulty) {
+        case .Easy:
+            return PositionHelper.randomStartVector(300)
+        case .Normal:
+            return PositionHelper.randomStartVector(400)
+        case .Hard:
+            return PositionHelper.randomStartVector(500)
+        case .Insane:
+            return PositionHelper.randomStartVector(600)
+        }
     }
     
     func adjustSpeed(factor: CGFloat) {
         if let dx = physicsBody?.velocity.dx, dy = physicsBody?.velocity.dy {
             physicsBody?.velocity = CGVectorMake(dx * factor, dy * factor)
+        }
+    }
+    
+    func adjustSpeedByAmount(amount: CGFloat) {
+        if let dx = physicsBody?.velocity.dx, dy = physicsBody?.velocity.dy {
+            dx/dy
+            physicsBody?.velocity = CGVectorMake(dx + amount, dy + amount)
         }
     }
 }
