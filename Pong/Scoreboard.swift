@@ -20,14 +20,14 @@ class Scoreboard: SKShapeNode {
         path = CGPathCreateWithRect(CGRectMake(-100, -10, 200, 50), nil)
         lineWidth = 0
         
-        computerScoreLabel.position = CGPointMake(50, 0)
+        computerScoreLabel.position = CGPointMake(50, 15)
         computerScoreLabel.fontColor = UIColor.whiteColor()
         computerScoreLabel.verticalAlignmentMode = .Center
         computerScoreLabel.horizontalAlignmentMode = .Center
         computerScoreLabel.fontSize = 50
         addChild(computerScoreLabel)
         
-        userScoreLabel.position = CGPointMake(-50, 0)
+        userScoreLabel.position = CGPointMake(-50, 15)
         userScoreLabel.fontColor = UIColor.whiteColor()
         userScoreLabel.verticalAlignmentMode = .Center
         userScoreLabel.horizontalAlignmentMode = .Center
